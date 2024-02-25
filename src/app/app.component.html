@@ -1,0 +1,23 @@
+<button
+  type="button"
+  (click)="toggleAffichage()"
+  [disabled]="etat_bouton == false"
+>
+  {{ etat_affichage ? "Cacher" : "Afficher" }}
+</button>
+
+<div *ngIf="etat_affichage">
+  <h1>Bienvenue</h1>
+  <ul>
+    <li *ngFor="let user of userList">{{ user.name }} ({{ user.age }})</li>
+  </ul>
+</div>
+
+<div *ngIf="etat_affichage">
+  <input type="text" [(ngModel)]="compteur" (keyup)="check()"/>
+  <div *ngIf="showBtn">
+    <button type="button" (click)="decrement()">-</button>
+    <span>Valeur de compteur : {{ count }}</span>
+    <button type="button" (click)="increment()">+</button>
+  </div>
+</div>
